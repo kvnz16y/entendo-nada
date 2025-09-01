@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário! 🎉</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff5252;
+            border-radius: 50%;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+            color: #ff6b6b;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .message-bubble {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+        }
+        
+        .btn-gift {
+            background: linear-gradient(45deg, #ff6b6b, #ff5252);
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.4);
+        }
+        
+        .btn-gift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 82, 82, 0.6);
+        }
+        
+        .candle {
+            width: 10px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ffd93d, #ff6b6b);
+            border-radius: 5px;
+            margin: 0 auto;
+            position: relative;
+            animation: flicker 2s infinite alternate;
+        }
+        
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(to bottom, #ffd93d, #ff6b6b);
+            border-radius: 50% 50% 20% 20%;
+            margin: 0 auto 10px;
+            animation: flicker 1s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="birthday-card p-8 max-w-4xl w-full mx-4">
+        <!-- Cabeçalho com título animado -->
+        <div class="text-center mb-8 relative">
+            <div class="flame mx-auto mb-4"></div>
+            <h1 class="dancing-font text-5xl md:text-6xl font-bold text-white mb-4">
+                Feliz Aniversário!
+            </h1>
+            <p class="text-xl text-white/90">Para minha amiga especial</p>
+        </div>
+
+        <!-- Mensagem principal -->
+        <div class="message-bubble">
+            <p class="text-lg leading-relaxed">
+                Hoje é um dia especial porque o mundo ganhou você! 🎂<br><br>
+                Que esta nova fase da sua vida seja repleta de alegria, conquistas e momentos incríveis. 
+                Você merece todo o amor e felicidade do mundo!<br><br>
+                Obrigado por ser essa pessoa maravilhosa que ilumina a vida de todos ao seu redor. 
+                Que seus sonhos se realizem e que cada dia seja melhor que o anterior! 💫
+            </p>
+        </div>
+
+        <!-- Galeria de fotos -->
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6c3c1deb-816b-4224-8074-3e7f54f8d263.png" alt="Amigas sorrindo e abraçadas em um parque ensolarado com balões coloridos" />
+                <div class="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-white text-center">
+                    Momentos especiais juntas 💖
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4c496c8f-6f66-4979-8e82-3c92466c2606.png" alt="Celebração de aniversário anterior com bolo decorado e velas acesas" />
+                <div class="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-white text-center">
+                    Celebrando a vida 🎂
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/40770807-b014-4b61-ab3e-ce1ed9324f11.png" alt="Paisagem de praia ao entardecer com silhuetas de amigos conversando" />
+                <div class="absolute bottom-0 left-0 right-0 bg-black/50 p-3 text-white text-center">
+                    Aventuras inesquecíveis 🌅
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de desejos -->
+        <div class="mt-8 bg-white/10 p-6 rounded-2xl">
+            <h3 class="text-2xl font-bold text-center mb-4 dancing-font">Desejos para você:</h3>
+            <ul class="space-y-3">
+                <li class="flex items-center">
+                    <span class="text-2xl mr-3">✨</span>
+                    Muita saúde e energia
+                </li>
+                <li class="flex items-center">
+                    <span class="text-2xl mr-3">💖</span>
+                    Amor e amizades verdadeiras
+                </li>
+                <li class="flex items-center">
+                    <span class="text-2xl mr-3">🎯</span>
+                    Conquistas e sucesso profissional
+                </li>
+                <li class="flex items-center">
+                    <span class="text-2xl mr-3">🌍</span>
+                    Viagens e aventuras incríveis
+                </li>
+                <li class="flex items-center">
+                    <span class="text-2xl mr-3">😊</span>
+                    Sorrisos todos os dias
+                </li>
+            </ul>
+        </div>
+
+        <!-- Botão especial -->
+        <div class="text-center mt-8">
+            <button onclick="showSurprise()" class="btn-gift">
+                Clique para um presentinho especial! 🎁
+            </button>
+        </div>
+
+        <!-- Velas decorativas -->
+        <div class="flex justify-center space-x-6 mt-8">
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+        </div>
+    </div>
+
+    <!-- Área para surpresa -->
+    <div id="surprise" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-8 rounded-2xl text-center max-w-md mx-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 dancing-font">Surpresa! 🎉</h3>
+            <p class="text-gray-600 mb-6">
+                Esta mensagem virtual vem cheia de carinho para celebrar você!<br><br>
+                Que seu dia seja tão especial quanto você é! 💝
+            </p>
+            <button onclick="closeSurprise()" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Criar confetes
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#ff5252', '#ffd93d', '#6bcf7f', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 15 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 15 + 5) + 'px';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 30);
+            }
+        }
+
+        // Criar corações flutuantes
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+        }
+
+        // Mostrar surpresa
+        function showSurprise() {
+            document.getElementById('surprise').classList.remove('hidden');
+            createConfetti();
+            createHearts();
+            
+            // Tocar som de festa (opcional)
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiP1/LQfzr/HnXI8+WpSwoRXrLp7bVZDgE+lN/1yH0pBxVvx/LitlUSBi2Q3fXMeSwGDm3H8+SxVxQFI4rc9M1+LgYIasvz5rVbFgUZhdv0zn8wBwVlxfPnuWAZBRR71/LQgjMHA2DE8+e8ZBwFC3fV8tGENQcBXsPz6L5mHgUGc9Xy0oU3B/9bwfPowGkgBQFu'
+            + 'xfPpwWohBf5qxfPqw2wiBftoxfPrxW0jBflnxfPsx28kBfdmxPPtyHEmBfVlxPPuyXMnBfNkxPPvynQoBfFjxPPwy3UpBe9ixPPxzXYqBe1hxPPyzncrBetgxPPzz3gsBel'
+            + 'fxPP00XktBehexPP10nouBeZdxPP21HsvBeRcxPP31XwwBeJbxPP41n0xBeBaxPP52H4yBd5ZxPP62X8zBdxYxPP724A0BdpXxPP83IE1BdhWxPP93YI2BdZWxPP+3oM3BdR'
+            + 'VxPP/34Q4BdNWxPP/4IU5BdJWxPP/4YY6BdFWxPP/4og7BdBWxPP/44k8Bc9WxPP/5Io9Bc5WxPP/5Ys+Bc1WxPP/5ow/BcxWxPP/541ABctWxPP/6I5BBcpWxPP/6Y9CBclW'
+            + 'xPP/6pBDBchWxPP/65FEBcdWxPP/7JJFBcZWxPP/7ZNGBcVWxPP/7pRHBcRWxPP/75VIBcNWxPP/8JZJBcJWxPP/8ZdKBcFWxPP/8phLBcBWxPP/85lMBb9WxPP/9JpNBb5WxP'
+            + 'P/9ZtOBb1WxPP/9pxPBbxWxPP/951QBbtWxPP/+J5RBbpWxPP/+Z9SBblWxPP/+qBTBbhWxPP/+6FUBbdWxPP//KJVBbZWxPP//aNWBbVWxPP//qRXBbRWxPP//6VYBbNWxPP'
+            + '//6ZYBbJWxPP//6dZBbFWxPP//6haBbBWxPP//6lbBa9WxPP//6pcBa5WxPP//6tdBa1WxPP//6xeBaxWxPP//61fBatWxPP//65gBapWxPP//69hBalWxPP//7BiBahWxPP'
+            + '//7FjBadWxPP//7JkBaZWxPP//7NlBaVWxPP//7RmBaRWxPP//7VnBaNWxPP//7ZoBaJWxPP//7dpBaFWxPP//7hqBaBWxPP//7lrBZ9WxPP//7psBZ5WxPP//7ttBZ1WxPP'
+            + '//7xuBZxWxPP//71vBZtWxPP//75wBZpWxPP//79xBZlWxPP//8ByBZhWxPP//8FzBZdWxPP//8J0BZZWxPP//8N1BZVWxPP//8R2BZRWxPP//8V3BZNWxPP//8Z4BZJWxPP'
+            + '//8d5BZFWxPP//8h6BZBWxPP//8l7BY9WxPP//8p8BY5WxPP//8t9BY1WxPP//8x+BYxWxPP//81/BYtWxPP//86ABYpWxPP//8+BBYlWxPP//9CCBYhWxPP//9GDBYdWxPP'
+            + '//9KEBYZWxPP//9OFBYVWxPP//9SGBYRWxPP//9WHBYNWxPP//9aIBYJWxPP//9eJBYFWxPP//9iKBYBWxPP//9mLBX9WxPP//9qMBX5WxPP//9uNBX1WxPP//9yOBXxWxPP'
+            + '//92PBXtWxPP//96QBXpWxPP//9+RBXlWxPP//+CSBXhWxPP//+GTBXdWxPP//+KUBXZWxPP//+OVBXVWxPP//+SWBXRWxPP//+WXBXNWxPP//+aYBXJWxPP//+eZBXFWxPP'
+            + '//+iaBXBWxPP//+mbBW9WxPP//+qcBW5WxPP//+udBW1WxPP//+yeBWxWxPP//+2fBWtWxPP//+6gBWpWxPP//++hBWlWxPP///CiBWhWxPP///GjBWdWxPP///KkBWZWxPP'
+            + '///OmBWVWxPP///SnBWRWxPP///WoBWNWxPP///apBWJWxPP///erBWFWxPP///isBWBWxPP///mtBV9WxPP///qvBV5WxPP///uwBV1WxPP///yxBVxWxPP///2yBVtWxPP'
+            + '///3zBVpWxPP///70BVlWxPP///71BVhWxPP///72BVdWxPP///73BVZWxPP///74BVVWxPP///75BVRWxPP///76BVNWxPP///77BVJWxPP///78BVFWxPP///79BVBWxPP'
+            + '///7+BV9WxPP///7/BV5WxPP///8ABV1WxPP///8BBVxWxPP///8CBVtWxPP///8DBVpWxPP///8EBVlWxPP///8FBVhWxPP///8GBVdWxPP///8HBVZWxPP///8IBVVWxPP'
+            + '///8JBVRWxPP///8KBVNWxPP///8LBVJWxPP///8MBVFWxPP///8NBVBWxPP///8OBV9WxPP///8PBV5WxPP///8QBV1WxPP///8RBVxWxPP///8SBVtWxPP///8TBVpWxPP'
+            + '///8UBVlWxPP///8VBVhWxPP///8WBVdWxPP///8XBVZWxPP///8Y');
+            audio.volume = 0.3;
+            audio.play();
+        }
+
+        // Fechar surpresa
+        function closeSurprise() {
+            document.getElementById('surprise').classList.add('hidden');
+        }
+
+        // Iniciar animações quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            createConfetti();
+            createHearts();
+            
+            // Animação contínua de confetes
+            setInterval(createConfetti, 8000);
+            setInterval(createHearts, 6000);
+        });
+
+        // Efeito de digitação na mensagem
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Iniciar efeito de digitação após carregar
+        window.onload = function() {
+            const messageElement = document.querySelector('.message-bubble p');
+            const originalText = messageElement.innerHTML;
+            typeWriter(messageElement, originalText, 30);
+        };
+    </script>
+</body>
+</html>
